@@ -145,7 +145,11 @@
   .product-card { min-height: 540px; }
   .movement-section, .movement-inner { min-height: 760px; }
   .movement-copy { align-self: start; }
-  .city-moscow { left: 68%; }
+  .city-moscow { left: 70%; top: 27%; }
+  .city-astana { left: 52%; top: 50%; }
+  .city-almaty { left: 66%; top: 68%; }
+  .movement-map { opacity: .62; }
+  .movement-story { position: relative; z-index: 6; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
