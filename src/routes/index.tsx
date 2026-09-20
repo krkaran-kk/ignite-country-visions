@@ -62,7 +62,7 @@ const products = [
     description: "We take your health personally—with daily nutrition shaped around your goals and lifestyle.",
     image: bioniqProduct,
     alt: "Bioniq GO personalized supplement pack",
-    category: "Daily Nutrition",
+    categories: ["Daily Nutrition", "Targeted Health"],
   },
   {
     name: "LIFE I/O Helio",
@@ -70,7 +70,7 @@ const products = [
     description: "A convenient blend made to support busy days with purposeful, everyday nutrition.",
     image: helioProduct,
     alt: "LIFE I/O Helio super shake and shaker",
-    category: "Healthy Weight",
+    categories: ["Healthy Weight", "Daily Nutrition"],
   },
   {
     name: "Herbalife24 ACHIEVE",
@@ -78,7 +78,7 @@ const products = [
     description: "A high-protein snack designed to help you get through your day or workout.",
     image: achieveProduct,
     alt: "Herbalife24 ACHIEVE protein bar",
-    category: "Fitness Performance",
+    categories: ["Fitness Performance", "Targeted Health"],
   },
 ] as const;
 
@@ -164,7 +164,12 @@ function HomePage() {
     ["Learning", "Practical knowledge opens new paths forward."],
     ["Opportunity", "Independent ambition grows through community."],
   ] as const;
-  const visibleProducts = category === "Featured" ? products : products.filter((product) => product.category === category);
+  const visibleProducts = category === "Featured" ? products : products.filter((product) => product.categories.includes(category));
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setMovement((current) => (current + 1) % movementStories.length), 6000);
+    return () => window.clearInterval(timer);
+  }, [movementStories.length]);
 
   function subscribe(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
