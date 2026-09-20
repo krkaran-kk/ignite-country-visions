@@ -164,7 +164,7 @@ function HomePage() {
     ["Learning", "Practical knowledge opens new paths forward."],
     ["Opportunity", "Independent ambition grows through community."],
   ] as const;
-  const visibleProducts = category === "Featured" ? products : products.filter((product) => product.categories.includes(category));
+  const visibleProducts = category === "Featured" ? products : products.filter((product) => product.categories.some((item) => item === category));
 
   useEffect(() => {
     const timer = window.setInterval(() => setMovement((current) => (current + 1) % movementStories.length), 6000);
