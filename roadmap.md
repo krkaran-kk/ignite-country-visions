@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# Homepage completion
 
 - [x] Use client-supplied homepage paragraphs, section order and footer content.
@@ -14,3 +15,10 @@
 - [x] Redesign the header with animated branding, active navigation and scroll progress.
 - [x] Keep the hero visually clean and move the added motion into the rest of the page.
 - [x] Join the homepage sections with responsive animated transitions and scroll-linked atmosphere.
+=======
+# Homepage completion
+- [x] Align all content with the supplied guide
+- [x] Add product interactions and expanded media/footer content
+- [x] Add scroll animation system and the regional wow section
+- [x] Verify desktop and mobile presentation
+>>>>>>> 2234dbf267c942b141066b17fcfec78f10b428f9

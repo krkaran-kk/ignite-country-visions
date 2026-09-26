@@ -104,7 +104,38 @@ function Destination({
   );
 }
 
+<<<<<<< HEAD
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
+=======
+const products = [
+  {
+    name: "BIONIQ GO",
+    label: "Personalized daily supplement",
+    description: "We take your health personally—with daily nutrition shaped around your goals and lifestyle.",
+    image: bioniqProduct,
+    alt: "Bioniq GO personalized supplement pack",
+    categories: ["Daily Nutrition", "Targeted Health"],
+  },
+  {
+    name: "LIFE I/O Helio",
+    label: "Daily all-in-one super shake",
+    description: "A convenient blend made to support busy days with purposeful, everyday nutrition.",
+    image: helioProduct,
+    alt: "LIFE I/O Helio super shake and shaker",
+    categories: ["Healthy Weight", "Daily Nutrition"],
+  },
+  {
+    name: "Herbalife24 ACHIEVE",
+    label: "High-protein performance bar",
+    description: "A high-protein snack designed to help you get through your day or workout.",
+    image: achieveProduct,
+    alt: "Herbalife24 ACHIEVE protein bar",
+    categories: ["Fitness Performance", "Targeted Health"],
+  },
+] as const;
+
+function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+>>>>>>> 2234dbf267c942b141066b17fcfec78f10b428f9
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const element = ref.current;
@@ -348,7 +379,31 @@ function Header() {
   );
 }
 
+<<<<<<< HEAD
 function SectionLabel({ number, children }: { number: string; children: ReactNode }) {
+=======
+function HomePage() {
+  const [category, setCategory] = useState("Featured");
+  const [movement, setMovement] = useState(0);
+  const [subscribed, setSubscribed] = useState(false);
+  const movementStories = [
+    ["Wellness", "Small daily choices become lasting momentum."],
+    ["Learning", "Practical knowledge opens new paths forward."],
+    ["Opportunity", "Independent ambition grows through community."],
+  ] as const;
+  const visibleProducts = category === "Featured" ? products : products.filter((product) => product.categories.some((item) => item === category));
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setMovement((current) => (current + 1) % movementStories.length), 6000);
+    return () => window.clearInterval(timer);
+  }, [movementStories.length]);
+
+  function subscribe(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubscribed(true);
+  }
+
+>>>>>>> 2234dbf267c942b141066b17fcfec78f10b428f9
   return (
     <div className="section-label">
       <span className="section-number">{number}</span>
