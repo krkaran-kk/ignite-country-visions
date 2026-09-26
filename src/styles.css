@@ -98,7 +98,6 @@
   width: min(100% - 96px, 1440px);
   margin-inline: auto;
 }
-<<<<<<< HEAD
 .section-space {
   padding-block: 105px;
 }
@@ -1509,20 +1508,6 @@
   .inquiry-title {
     font-size: 25px;
   }
-=======
-@media (max-width: 640px) {
-  .hero-section { min-height: 720px; }
-  .bg-hero-wash { background: linear-gradient(180deg, transparent 15%, color-mix(in oklab, var(--warm-white) 35%, transparent) 42%, color-mix(in oklab, var(--warm-white) 97%, transparent) 86%); }
-  .hero-country-mark { display: none; }
-  .product-card { min-height: 540px; }
-  .movement-section, .movement-inner { min-height: 760px; }
-  .movement-copy { align-self: start; }
-  .city-moscow { left: 70%; top: 27%; }
-  .city-astana { left: 52%; top: 50%; }
-  .city-almaty { left: 66%; top: 68%; }
-  .movement-map { opacity: .62; }
-  .movement-story { position: relative; z-index: 6; }
->>>>>>> 2234dbf267c942b141066b17fcfec78f10b428f9
 }
 @media (prefers-reduced-motion: reduce) {
   html {
