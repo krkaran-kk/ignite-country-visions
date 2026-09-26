@@ -22,11 +22,33 @@ Continue developing this project in the [Lovable editor](https://lovable.dev/pro
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Use **Node.js 22.22+ (22.x) or 24+**. The system Node 20.9.0 on this machine is too old for this toolchain. `.nvmrc` pins the version used for local setup. No `.env` file, database or Lovable login is required to run the existing prototype.
+
+On this Windows checkout, an isolated Node runtime is available under the ignored `.local/` directory. Start the site from PowerShell:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\start-local.ps1
+```
+
+Open **http://127.0.0.1:3000/**. Keep the terminal running; press Ctrl+C to stop. The launcher uses the project-local Node executable when present and does not change the system installation. If port 3000 is already in use, it reports an error instead of silently selecting another port.
+
+For a fresh checkout, install a supported Node version and Bun, then use the committed lockfile:
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+bun install --frozen-lockfile
+npm run dev -- --host 127.0.0.1 --port 3000 --strictPort
 ```
+
+`bun.lock` remains the dependency source of truth used by Lovable. Do not mix package-manager lockfiles. The `.local/` runtime and caches are machine-local and are not committed.
+
+Checks on this Windows checkout:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\start-local.ps1 typecheck
+powershell -ExecutionPolicy Bypass -File .\start-local.ps1 lint
+powershell -ExecutionPolicy Bypass -File .\start-local.ps1 build
+```
+
+With a supported Node version on PATH, the equivalent commands are `npm run typecheck`, `npm run lint`, and `npm run build`. Vite generates the route tree; do not edit `src/routeTree.gen.ts` manually. Keep Lovable's existing build configuration for deployment.
+
+See [PROJECT-STATUS.md](./PROJECT-STATUS.md) for the architecture review, prototype limitations and gaps against the supplied design guide.
